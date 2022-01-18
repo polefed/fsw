@@ -1,0 +1,289 @@
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+// filter switch
+
+#filterSwitch1:checked ~ .filter__navigation .filter__navigation-button-1,
+#filterSwitch2:checked ~ .filter__navigation .filter__navigation-button-2,
+#filterSwitch3:checked ~ .filter__navigation .filter__navigation-button-3,
+#filterSwitch4:checked ~ .filter__navigation .filter__navigation-button-4,
+#filterSwitch5:checked ~ .filter__navigation .filter__navigation-button-5,
+#filterSwitchAll:checked ~ .filter__navigation .filter__navigation-all {
+  background-color: rgba(83, 83, 83, 0.438);
+  color: white;
+  cursor: default;
+  @media (max-width: 768px) {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100vh;
+    padding: 10px;
+  }
+}
+
+#filterSwitch1:checked ~ .filter__content .filter__content-item-1,
+#filterSwitch2:checked ~ .filter__content .filter__content-item-2,
+#filterSwitch3:checked ~ .filter__content .filter__content-item-3,
+#filterSwitch4:checked ~ .filter__content .filter__content-item-4,
+#filterSwitch5:checked ~ .filter__content .filter__content-item-5,
+#filterSwitchAll:checked ~ .filter__content .filter__content-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#filterSwitchAll:checked ~ .filter__content .filter__content-item[data-display='none'] {
+  display: none;
+}
+
+#filterDropSwitch {
+  display: none;
+  &:checked ~ .filter__navigation .filter-drop-button {
+    background-color: var(--color-7);
+    color: white;
+    opacity: 1;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: orange;
+      }
+    }
+  }
+  &:checked ~ .filter__navigation .filter-drop-button:after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  &:checked ~ .filter__navigation .filter__navigation-button {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100vh;
+    padding: 10px;
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+    position: relative;
+  }
+}
+
+.filter-drop-button {
+  display: block;
+  transition: var(--transition-2);
+  color: transparent;
+  padding: 10px 30px 10px 10px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 10;
+  &:after {
+    position: absolute;
+    content: "";
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background-color: white;
+    transition: var(--transition-2);
+  }
+  @media (min-width: 769px) {
+    display: none;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: orange;
+      color: white;
+    }
+  }
+  @media (max-width: 480px) {
+    flex: 1 1 100%;
+  }
+}
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+// filter
+
+.filter {
+  display: flex;
+  gap: 10px;
+  @media (min-width: 769px) { 
+  flex-direction: column;
+  }
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+  &__switch {
+    display: none;
+    // &:checked ~.filter__content .filter__content-item {
+    //   animation: filterAnimation 1s ease-in-out forwards;
+    // }
+  }
+  &__navigation {
+    @media (min-width: 769px) {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    position: relative;
+    @media (max-width: 768px) {
+      flex: 1 1 auto;
+    }
+  }
+  &__navigation-button {
+    display: block;
+    position: relative;
+    // padding: 10px;
+    font: var(--font-3);
+    color: var(--color-2);
+    border-radius: 10px;
+    transition: var(--transition-2);
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--color-6);
+      }
+    }
+    @media (max-width: 768px) {
+      opacity: 0;
+      visibility: hidden;
+      max-height: 0;
+      padding: 0;
+      background-color: rgba(83, 83, 83, 0.164);
+
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 10px;
+    }
+  }
+  &__content {
+    display: grid;
+    gap: 30px;
+    transition: var(--transition-2);
+    @media (min-width: 769px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      flex: 1 1 100%;
+    }
+
+    overflow: hidden;
+  }
+  &__content-item {
+    // transition: var(--transition-2);
+    display: none;
+    // background-color: gray;
+    // border-radius: 10px;
+    // padding: 20px;
+    // height: 200px;
+  }
+}
+
+// @keyframes filterAnimation {
+//   0% {
+//       transform: scale(0);
+//       opacity: 0;
+//       max-height: 0;
+//       transform: translateX(-100%);
+//   }
+//   100% {
+//       transform: scale(1);
+//       opacity: 1;
+//       max-height: 100vh;
+//       transform: translateX(0);
+//   }
+// }
+
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+// filter transform switch
+
+.transform-switch {
+  display: none;
+}
+#transformSwitch1:checked
+  ~ .transform-navigation
+  .transform-navigation__button-1,
+#transformSwitch2:checked
+  ~ .transform-navigation
+  .transform-navigation__button-2 {
+  background-color: var(--color-7);
+  cursor: default;
+}
+
+#transformSwitch1 {
+  @media (max-width: 768px) {
+    &:checked ~ .filter__content {
+      display: flex;
+      overflow-x: auto;
+      padding: 0 0 5px 0;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar {
+        background-color: gray;
+        border-radius: 10px;
+        height: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--color-3);
+        border-radius: 10px;
+        @media (any-hover: hover) {
+          &:hover {
+            background-color: red;
+          }
+        }
+      }
+    }
+    &:checked ~ .filter__content .filter__content-item {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+    }
+  }
+}
+
+
+.transform-navigation {
+  @media (min-width: 769px) {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    flex: 0 0 65px;
+  }
+  align-self: start;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &__button {
+    flex: 0 1 50%;
+    height: 30px;
+    background-color: gray;
+    border-radius: 10px;
+    transition: var(--transition-2);
+    transition: background-color var(--transition-2);
+    @media (any-hover: hover) {
+    &:hover {
+    background-color: red;
+    }
+    }
+    position: relative;
+    &:before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      width: 8px;
+      height: 8px;
+    }
+  }
+  &__button-1 {
+    &:before {
+      clip-path: polygon(0 0, 0% 100%, 100% 50%);
+    }
+  }
+  &__button-2 {
+    &:before {
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+    }
+  }
+}

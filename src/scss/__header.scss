@@ -1,0 +1,154 @@
+
+.header {
+    position: fixed;
+        z-index: 100;
+        width: 100%;
+    transition: var(--transition-2);
+    &.__scrolled {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 8rem;
+    flex-wrap: wrap;
+    padding: 10px;}
+    &__container-left {display: flex;align-items: center;}
+    &__container-logo {margin-right: 5rem;}
+    &__container-logo-img {}
+    &__container-link {color: var(--color-5);
+        @media (max-width: 992px) {
+            flex: 1 1 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 10px;
+        }
+    }
+    &__container-overlay {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-2);
+    background-color: rgba(0, 0, 0, 0.7);}
+    &__container-switch {
+    display: none;
+    &:checked ~ .header__container-burger .header__container-burger-icon {
+        transform: rotate(90deg);
+    background: linear-gradient(45deg, var(--burger-2) 45%, var(--burger-1) 46%, var(--burger-1) 55%, var(--burger-2) 56%),
+    linear-gradient(-45deg, var(--burger-2) 45%, var(--burger-1) 46%, var(--burger-1) 55%, var(--burger-2) 56%);}
+    &:checked~.navigation-menu {left: 0;}
+    &:checked~.navigation-menu .navigation-menu__list .navigation-menu__item  {left: 0;}
+    &:checked~.header__container-overlay {opacity: 1;visibility: visible;}}
+    &__container-burger-icon {
+        margin-left: 12px;
+        width: 20px;
+        height: 20px;
+        transition: transform var(--transition-2);
+        --burger-1: var(--color-2);
+        --burger-2: transparent;
+        background: linear-gradient(to bottom, var(--burger-1) 20%, var(--burger-2) 21%, var(--burger-2) 40%,
+        var(--burger-1) 41%, var(--burger-1) 60%, var(--burger-2) 61%, var(--burger-2) 80%, var(--burger-1) 81%);
+    }
+    &__container-burger-text {color: var(--color-3);}
+    &__container-burger {
+    @media (min-width:993px) {display: none;}
+    display: flex;
+    align-items: center;}
+    }
+    .navigation-menu {
+        flex: 1 1 auto;
+    @media (max-width: 992px) {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 55rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--color-3);
+    transition: left var(--transition-2);
+    overflow: auto;}
+    &__list {@media (min-width: 993px) {display: flex;flex-wrap: wrap;}}
+    &__item {
+        @media (max-width: 992px) {padding: 20px 10px;}
+    @media (min-width:993px) {
+        margin-right: 4rem;
+        &:nth-child(1) {display: none;}}
+    @media (max-width: 992px) {position: relative;left: -100%;
+    &:nth-child(1) {transition: left 0.8s;}
+    &:nth-child(2) {transition: left 1s;}
+    &:nth-child(3) {transition: left 1.2s;}
+    &:nth-child(4) {transition: left 1.4s;}
+    &:nth-child(5) {transition: left 1.6s;}
+    &:nth-child(6) {transition: left 1.8s;}
+    &:nth-child(7) {transition: left 2s;}
+    &:not(:first-child) {border-top: 1px solid rgba(255, 255, 255, 0.2);}
+    &:last-child {border-bottom: 1px solid rgba(255, 255, 255, 0.2);}}}
+    &__link {
+        // width: 100%;
+        transition: var(--transition-1);
+    // @media (max-width: 992px) {padding: 20px 10px;}
+}
+    &__close {
+    // margin: 20px 10px;
+    margin: 5px 0;
+    width: 20px;
+    height: 20px;
+    --close-1: white;
+    --close-2: transparent;
+    background: linear-gradient(45deg, var(--close-2) 45%, var(--close-1) 46%, var(--close-1) 55%, var(--close-2) 56%),
+    linear-gradient(-45deg, var(--close-2) 45%, var(--close-1) 46%, var(--close-1) 55%, var(--close-2) 56%);
+    @media (max-width: 992px) {display: block;}}
+    }
+
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+// ===================================================================================================================================================================================================================================================================================================================================================================================================================================
+.story {
+    // .story__container
+    &__container {
+        display:grid;
+        @media (min-width:993px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        grid-gap: 11rem;
+    }
+}
+.story-left {
+    // .story-left__title
+    &__title {font: var(--font-10);margin-bottom: 2.4rem;}
+    // .story-left__text
+    &__text {font: var(--font-2);color: var(--color-2);margin-bottom: 3.2rem;}
+    // .story-left__images
+    &__images {
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+    }
+    // .story-left__image
+    &__image {
+        height: 50rem;
+        &:nth-child(1) {
+            margin-top: 4rem;
+        }
+    }
+    // .story-left__img
+    &__img {}
+}
+.story-right {
+    // .story-right__title
+    &__title {font: var(--font-5);margin-bottom: 2.4rem;}
+    // .story-right__title-span
+    &__title-span {color: var(--color-3);}
+    // .story-right__text
+    &__text {font: var(--font-2);color: var(--color-2);margin-bottom: 16px;}
+}
