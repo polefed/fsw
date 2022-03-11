@@ -60,7 +60,7 @@
     // .section-5__video
     &__video {
         flex: 0 0 58%;
-        background: url(../img/section-5-img.jpg) var(--background-1);
+        background: var(--background-1);
         @media (max-width: 1200px) {
             flex: 0 0 50%;
         }

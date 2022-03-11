@@ -1793,11 +1793,9 @@ button.swiper-pagination-bullet {
   overflow: hidden;
 }
 
-.no-webp .section-5__video {
-  background: url(../img/section-5-img.jpg) var(--background-1); }
-
 .section-5__video {
   flex: 0 0 58%;
+  background: var(--background-1);
 }
 
 .section-5__video-play {
@@ -2724,5 +2722,3 @@ button.swiper-pagination-bullet {
     fill: var(--color-3);
   }
 }
-
-.webp .section-5__video { background: url(../img/section-5-img.webp) var(--background-1); }
